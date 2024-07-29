@@ -11,7 +11,7 @@ FREditPopup* FREditPopup::create(GJGameLevel* level, FakeRateSaveData data, Upda
 }
 
 bool FREditPopup::setup(GJGameLevel* level, FakeRateSaveData data, UpdateFakeRateCallback callback) {
-    setTitle("Fake Rate");
+    setTitle("Mod");
     m_level = level;
     m_stars = data.stars;
     m_feature = data.feature;
@@ -79,7 +79,7 @@ bool FREditPopup::setup(GJGameLevel* level, FakeRateSaveData data, UpdateFakeRat
     m_buttonMenu->addChild(difficultyButton);
 
     auto starsButton = CCMenuItemExt::createSpriteExtra(ButtonSprite::create("Stars", "goldFont.fnt", "GJ_button_02.png", 0.8f), [this, data](auto) {
-        auto popup = SetIDPopup::create(m_stars, -128, 127, "Set Stars", "Set", true, data.stars, 0.0f, false, false);
+        auto popup = SetIDPopup::create(m_stars, 0, 16, "Set Stars", "Set", true, data.stars, 0.0f, false, false);
         popup->m_inputNode->setAllowedChars("0123456789-");
         popup->m_delegate = this;
         popup->show();
